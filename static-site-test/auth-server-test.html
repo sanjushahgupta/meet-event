@@ -16,12 +16,12 @@
         <p id="result"></p>
         <a id="authURL" href target="_blank">Navigate to Google consent screen</a>
 
-        <h4>Step 2: Get your code and exchange for an access token</h4>
+        <h4>Step 2: Get your code and input that code to get an access token</h4>
         <p>
-            After you’re redirected back to your Meet app on GitHub, copy the code
+            After redirected back to Meet app, copy the code
             from the URI.
         </p>
-        <label>Code input
+        <label>Code
             <input id="code" type="text" value="" />
         </label>
         <button id="getTokenBtn">Get token</button>
@@ -57,9 +57,10 @@
                     code = encodeURIComponent(codeValue.value);
                 }
                 getTokenUrl = "https://94wwv91lk1.execute-api.eu-central-1.amazonaws.com/dev/api/token" + "/" + code;
-                console.log("above getTokenUrl")
+                console.log("inside button clicked")
                 fetch(getTokenUrl)
                     .then(function (response) {
+                        console.log("rsponse")
                         return response.json();
                     })
                     .then(function (json) {
