@@ -1,6 +1,6 @@
 //An element for the event's title: Use the .summary key from the event's object as the text content of that expected element. We recommend using queryByText() instead of queryByRole() (though it’s up to yoimport { render } from '@testing-library/react';
 import Event from "../components/Event";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render} from "@testing-library/react";
 
 const event ={
       "kind": "calendar#event",
@@ -63,4 +63,38 @@ describe('<Event/> component',()=>{
     expect(EventComponent.queryByText(event.created)).toBeInTheDocument();
   });
 
+  test('render events show details button', () => {
+    // eslint-disable-next-line testing-library/prefer-screen-queries, testing-library/prefer-presence-queries
+    expect(EventComponent.queryByText('Show Details')).toBeInTheDocument();
+  });
+
+  test('by default, events details section should be hidden', () => {
+    // eslint-disable-next-line testing-library/prefer-screen-queries, testing-library/prefer-presence-queries
+    expect(EventComponent.queryByText('Event Details')).not.toBeInTheDocument();
+  });
+
+  test('show details when show button is clicked', () => {
+        // eslint-disable-next-line testing-library/prefer-screen-queries, testing-library/prefer-presence-queries
+        const showDetailsButton = EventComponent.queryByText('Show Details'); // Find the button by its text content
+      
+        fireEvent.click(showDetailsButton); // Simulate a click on the button
+              // eslint-disable-next-line testing-library/prefer-screen-queries, testing-library/prefer-presence-queries
+        const detailsElement = EventComponent.queryByText('Event Details');
+        expect(detailsElement).toBeInTheDocument();
+
+})
+
+//hide the details when hide button clicked
+test('hide the details when hide button clicked', () => {
+    // eslint-disable-next-line testing-library/prefer-screen-queries, testing-library/prefer-presence-queries
+    const showDetailsButton = EventComponent.queryByText('Show Details'); // Find the button by its text content
+    fireEvent.click(showDetailsButton);
+        // eslint-disable-next-line testing-library/prefer-screen-queries, testing-library/prefer-presence-queries
+    const hideDetailsButton = EventComponent.queryByText('Hide Details');
+    fireEvent.click(hideDetailsButton); // Simulate a click on the button
+          // eslint-disable-next-line testing-library/prefer-screen-queries, testing-library/prefer-presence-queries
+    const detailsElement = EventComponent.queryByText('Event Details');
+    expect(detailsElement).not.toBeInTheDocument();
+
+})
 })
