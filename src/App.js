@@ -1,14 +1,17 @@
 import EventList from './components/EventList';
 import CitySearch from './components/CitySearch'
+import NumberOfEvents from './components/NumberOfEvents'
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
     <EventList />
-    <CitySearch/>
+    <CitySearch/> 
+    <NumberOfEvents/>
   </div>
-  );
+  );    
 }
 
 export default App;
