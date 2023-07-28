@@ -13,7 +13,7 @@
       expect(screen.queryByRole("textbox").value).toBe("32");
     });
 
-    test("input changes when user type", async () => {
+    test("textbox value changes accordingly when a user type", async () => {
         render(<NumberOfEvents />);
         const textboxElement = screen.queryByRole("textbox");
         user.clear(textboxElement);

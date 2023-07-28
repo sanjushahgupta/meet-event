@@ -1,4 +1,3 @@
-
 import mockData from './mock-data';
 
 export const extractLocations = (events) => {
@@ -6,6 +5,7 @@ export const extractLocations = (events) => {
   const locations = [...new Set(extractedLocations)];
   return locations;
 };
+
 export const getEvents = async () => {
     return mockData;
   };

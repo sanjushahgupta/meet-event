@@ -67,7 +67,7 @@
       expect(screen.queryByText('Event Details')).not.toBeInTheDocument();
     });
 
-    test('show details, when show button is clicked', () => {
+    test('when show button is clicked, display events details', () => {
       render(<Event event={event}/>)
           const showDetailsButton = screen.queryByText('Show Details'); 
           fireEvent.click(showDetailsButton); 
