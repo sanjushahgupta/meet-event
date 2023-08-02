@@ -29,8 +29,8 @@ function App() {
   return (
     <div className="App">
     <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
-    <NumberOfEvents  currentNOE ={setCurrentNOE}/>
-    <EventList events={events}/>
+    <NumberOfEvents  setCurrentNOE={setCurrentNOE} />
+    <EventList events={events.slice(0, currentNOE)}/>
   </div>
   );    
 }

@@ -15,10 +15,11 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-#city-search {
-  display: flex;
-  flex-direction: column;
+
+.city {
+  width: 250px;
 }
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -34,24 +35,42 @@
 }
 .event-container{
   list-style: none;
-  border: 1px solid rgb(161, 159, 159);
+  border: 1px solid #ccc;
+  text-align: left;
   margin: 8px;
   padding-bottom: 3px;
   padding: 8px;
-  display: inline-block;
+  position: relative;
 }
-.event-container button{
-  background-color: #0a6e8d;
-color: white;
-border-radius: 8px;
-padding: 8px;
-text-align: end;
 
+.event-container button{
+  right: 5px;
+  bottom: 5px;
+  padding: 5px 8px;
+  position: absolute;
+  background-color: #0a6e8d;
+  color: white;
+  border-radius: 8px;
+  outline: none;
 }
+
+input[type="text"],
+input[type="number"] {
+  padding:8px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  align-self: center;
+  height: 38px;
+  margin: 8px;
+}
+
 #city-search{
-text-align: center;
-margin: 20px;
-padding: 8px;
+  display: flex;
+  flex-direction: column;
+  margin:auto;
+  position: relative;
 }
 
 #number-of-events{
