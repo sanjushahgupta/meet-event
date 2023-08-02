@@ -7,7 +7,7 @@
           }
         
       return (
-            <li>
+            <li className="event-container">
           <div>
             <h5>{event.summary}</h5>
             <h5>{event.location}</h5>

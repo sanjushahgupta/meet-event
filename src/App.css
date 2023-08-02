@@ -1,6 +1,9 @@
 .App {
   text-align: center;
-}
+  margin-top: 0;
+  flex-direction: column;
+  align-items: center;
+  }
 
 .App-logo {
   height: 40vmin;
@@ -12,14 +15,16 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+#city-search {
+  display: flex;
+  flex-direction: column;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
+  align-items: self-start;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -27,7 +32,44 @@
 .App-link {
   color: #61dafb;
 }
+.event-container{
+  list-style: none;
+  border: 1px solid rgb(161, 159, 159);
+  margin: 8px;
+  padding-bottom: 3px;
+  padding: 8px;
+  display: inline-block;
+}
+.event-container button{
+  background-color: #0a6e8d;
+color: white;
+border-radius: 8px;
+padding: 8px;
+text-align: end;
 
+}
+#city-search{
+text-align: center;
+margin: 20px;
+padding: 8px;
+}
+
+#number-of-events{
+  padding: 8px;
+}
+
+.suggestions > li {
+  text-align: left;
+  background-color: #edf1f1;
+  cursor: default;
+  list-style: none;
+  padding: 8px;
+}
+
+
+.suggestions > li:hover {
+  background-color: #9ea2a2;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

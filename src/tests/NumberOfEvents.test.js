@@ -25,3 +25,11 @@
     });
 
   });
+  describe("<NumberOfEvents /> integration", () => {
+    test("contains an element with the role of the textbox", () => {
+      render(<NumberOfEvents />);
+      expect(screen.getByRole("textbox")).toBeInTheDocument();
+    });
+
+  });
+
