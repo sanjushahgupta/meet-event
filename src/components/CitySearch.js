@@ -6,7 +6,7 @@
 
     useEffect(() => {
       setSuggestions(allLocations);
-    }, [`${allLocations}`]);
+    }, [allLocations]);
 
     const handleInputChanged = (event) => {
       const value = event.target.value;
@@ -29,7 +29,7 @@
     return (
       <div id="city-search">
       
-        <label for="city">City: 
+        <label htmlFor="city">City: 
         <input
           type="text"
           id="city"

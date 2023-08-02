@@ -19,7 +19,7 @@ describe('<CitySearch/> component', () => {
   test('renders text input', () => {
     const cityTextBox = screen.queryByRole('textbox');
     expect(cityTextBox).toBeInTheDocument();
-    expect(cityTextBox).toHaveClass('city');
+    expect(cityTextBox).toHaveAttribute('id','city');
   });
 
   test('suggestions list is hidden by default', () => {
