@@ -1,8 +1,9 @@
 /* eslint-disable testing-library/no-node-access */
 /* eslint-disable no-undef */
-    /* eslint-disable testing-library/prefer-screen-queries */
-    /* eslint-disable testing-library/render-result-naming-convention */
-    import { render, within, waitFor, screen } from '@testing-library/react';
+/* eslint-disable testing-library/prefer-screen-queries */
+/* eslint-disable testing-library/render-result-naming-convention */
+
+import { render, within, waitFor, screen } from '@testing-library/react';
 import { getEvents } from '../api';
 import EventList from '../components/EventList';
 import App from "../App";

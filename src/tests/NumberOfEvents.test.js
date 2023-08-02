@@ -1,7 +1,6 @@
 import NumberOfEvents from "../components/NumberOfEvents";
-  import { render, waitFor, screen } from "@testing-library/react";
-  import userEvent from '@testing-library/user-event';
-import mockData from "../mock-data";
+import { render, waitFor, screen } from "@testing-library/react";
+import userEvent from '@testing-library/user-event';
 
   describe("<NumberOfEvents /> component", () => {
     test("contains an element with the role of the textbox", () => {

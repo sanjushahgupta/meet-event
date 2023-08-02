@@ -5,6 +5,8 @@
   align-items: center;
   }
 
+body{background-color: aliceblue;}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -16,7 +18,7 @@
   }
 }
 
-.city {
+#city {
   width: 250px;
 }
 
@@ -30,9 +32,14 @@
   color: white;
 }
 
+.Container{
+  background-color:#1a8e92; 
+}
+
 .App-link {
   color: #61dafb;
 }
+
 .event-container{
   list-style: none;
   border: 1px solid #ccc;
@@ -46,12 +53,12 @@
 .event-container button{
   right: 5px;
   bottom: 5px;
-  padding: 5px 8px;
+  padding: 8px;
   position: absolute;
-  background-color: #0a6e8d;
-  color: white;
+  background-color: hsl(184, 89%, 14%);
+  color: #ffffff;
   border-radius: 8px;
-  outline: none;
+  border:none;
 }
 
 input[type="text"],
@@ -69,22 +76,29 @@ input[type="number"] {
 #city-search{
   display: flex;
   flex-direction: column;
-  margin:auto;
   position: relative;
 }
 
 #number-of-events{
-  padding: 8px;
+  padding: 4px;
+}
+
+.suggestions {
+  width: 250px;
+  position:absolute;
+  align-self: center;
+  top: 45px;
+  z-index: 2;
+  margin: 0;
 }
 
 .suggestions > li {
-  text-align: left;
-  background-color: #edf1f1;
+  background-color: #ccc7c7;
   cursor: default;
   list-style: none;
-  padding: 8px;
+  text-align: left;
+  padding:8px;
 }
-
 
 .suggestions > li:hover {
   background-color: #9ea2a2;

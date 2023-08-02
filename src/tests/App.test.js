@@ -19,7 +19,6 @@
       const AppDOM = render(<App />).container.firstChild;
       expect(AppDOM.querySelector('#number-of-events')).toBeInTheDocument();
     });
-
   });
 
   describe('<App /> integration', () => {
