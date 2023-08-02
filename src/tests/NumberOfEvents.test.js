@@ -31,6 +31,7 @@ import userEvent from '@testing-library/user-event';
       render(<NumberOfEvents setCurrentNOE={() => { }}/>);
       const textboxElement = screen.queryByRole("textbox");
       await userEvent.type(textboxElement, '{backspace}{backspace}10');
+      expect(textboxElement).toHaveValue('10');
     })
   });
 

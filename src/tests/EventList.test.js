@@ -30,7 +30,8 @@ import App from "../App";
             const EventListDOM = AppDOM.querySelector('#event-list');
             await waitFor(() => {
               const EventListItems = within(EventListDOM).queryAllByRole('listitem');
-              expect(EventListItems.length).toBe(0);
+              expect(EventListItems.length).toBe(32);
             });
           });
+          
 });
