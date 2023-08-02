@@ -1,3 +1,4 @@
+
 import mockData from './mock-data';
 
 export const extractLocations = (events) => {
@@ -6,6 +7,7 @@ export const extractLocations = (events) => {
   return locations;
 };
 const checkToken = async (accessToken) => {
+  // eslint-disable-next-line no-useless-concat
   const response = await fetch(
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
   );
@@ -21,6 +23,7 @@ export const getEvents = async () => {
 
   if (token) {
     removeQuery();
+    // eslint-disable-next-line no-useless-concat
     const url =  "https://94wwv91lk1.execute-api.eu-central-1.amazonaws.com/dev/api/get-events" + "/" + token;
     const response = await fetch(url);
     const result = await response.json();
