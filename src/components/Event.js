@@ -14,7 +14,7 @@
               <h5>{event.created}</h5>
               <button onClick={handleClick}>{showDetails ? 'Hide Details': 'Show Details'}</button>
               {showDetails &&(
-                <h6>Event Details</h6>
+                <div>Event Details</div>
               )}
           </div>  
           </li>  
