@@ -12,9 +12,9 @@
               <h5>{event.summary}</h5>
               <h5>{event.location}</h5>
               <h5>{event.created}</h5>
-              <button onClick={handleClick}>{showDetails ? 'Hide Details': 'Show Details'}</button>
+              <button  className="details-button" onClick={handleClick}>{showDetails ? 'Hide Details': 'Show Details'}</button>
               {showDetails &&(
-                <div>Event Details</div>
+                <div className="details-event">Event Details</div>
               )}
           </div>  
           </li>  
