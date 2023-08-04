@@ -28,14 +28,12 @@ jest.setTimeout(10000);
     await page.click('.event-container .details-button');
     const eventDetails = await page.$('.event-container .details-event');
       expect(eventDetails).toBeDefined();
-      console.log("defineEventDetails",eventDetails)
   });
     
   test('User can collapse an event to hide details', async () => {
     await page.click('.event-container .details-button');
     const eventDetails = await page.$('.event-container .details-event');
       expect(eventDetails).toBeNull();
-      console.log("eventsdetails",eventDetails)
   });
 
 });
