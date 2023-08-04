@@ -27,6 +27,7 @@
       const AppDOM = render(<App />).container.firstChild;
   
       const CitySearchDOM = AppDOM.querySelector('#city-search');
+    
       const CitySearchInput = within(CitySearchDOM).queryByRole('textbox');
   
       await user.type(CitySearchInput, "Berlin");
