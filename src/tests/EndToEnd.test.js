@@ -1,10 +1,10 @@
 import puppeteer from 'puppeteer';
 
-// Increase the timeout for this describe block to 30 seconds
 describe('show/hide an event details', () => {
-    jest.setTimeout(10000); 
-  let browser;
-  let page;
+jest.setTimeout(10000); 
+    let browser;
+    let page;
+    
   beforeAll(async () => {
     browser = await puppeteer.launch({ headless: false,
         slowMo: 250,
@@ -18,6 +18,7 @@ describe('show/hide an event details', () => {
   afterAll(() => {
     browser.close();
   });
+    
   test('An event element is collapsed by default', async () => {
       const eventDetails = await page.$('.event-container .details-event');
       expect(eventDetails).toBeNull();
@@ -27,7 +28,7 @@ describe('show/hide an event details', () => {
     await page.click('.event-container .details-button');
     const eventDetails = await page.$('.event-container .details-event');
       expect(eventDetails).toBeDefined();
-      console.log("definedeventsdetails",eventDetails)
+      console.log("defineEventDetails",eventDetails)
   });
     
   test('User can collapse an event to hide details', async () => {
