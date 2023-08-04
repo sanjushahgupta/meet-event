@@ -1,35 +1,45 @@
+  import { useState, useEffect } from "react";
+  const CitySearch = ({ allLocations, setCurrentCity }) => {
+    const [showSuggestions, setShowSuggestions] = useState(false);
+    const [query, setQuery] = useState("");
+    const [suggestions, setSuggestions] = useState([]);
 
-  import { useState } from "react";
+    useEffect(() => {
+      setSuggestions(allLocations);
+    }, [allLocations]);
 
-  const CitySearch=({ allLocations })=>{
-      const [showSuggestions, setShowSuggestions] = useState(false);
-      const [query, setQuery] = useState("");
-      const [suggestions, setSuggestions] = useState([]);
-      const handleInputChanged = (event) => {
-        const value = event.target.value;
-        const filteredLocations = allLocations ? allLocations.filter((location) => {
-          return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
-        }) : [];
-        setQuery(value);
-        setSuggestions(filteredLocations);
-      };
+    const handleInputChanged = (event) => {
+      const value = event.target.value;
+      const filteredLocations = allLocations ? allLocations.filter((location) => {
+        return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
+      }) : [];
 
-      const handleItemClicked = (event) => {
-        const value = event.target.textContent;
-        setQuery(value);
-        setShowSuggestions(false); 
-      };
+      setQuery(value);
+      setSuggestions(filteredLocations);
+    };
+
+    const handleItemClicked = (event) => {
+      const value = event.target.textContent;
+
+      setQuery(value);
+      setShowSuggestions(false);
+      setCurrentCity(value);
+    };
+
+    return (
+      <div id="city-search">
       
-      return(
-        <div id="city-search">
+        <label htmlFor="city">City: 
         <input
           type="text"
-          className="city"
+          id="city"
           placeholder="Search for a city"
           value={query}
           onFocus={() => setShowSuggestions(true)}
           onChange={handleInputChanged}
         />
+      </label>
+
         {showSuggestions ?
           <ul className="suggestions">
             {suggestions.map((suggestion) => {
@@ -42,8 +52,7 @@
           : null
         }
       </div>
-      )
+    )
   }
-  
-  export default CitySearch
 
+  export default CitySearch;
