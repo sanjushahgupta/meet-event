@@ -2,7 +2,8 @@ import EventList from './components/EventList';
 import CitySearch from './components/CitySearch'
 import NumberOfEvents from './components/NumberOfEvents'
 import { useState, useEffect} from 'react';
-import { getEvents, extractLocations} from './api';
+import { getEvents, extractLocations } from './api';
+import {InfoAlert} from './components/alert'
 
 import './App.css';
 
@@ -11,6 +12,7 @@ function App() {
   const [currentNOE, setCurrentNOE] = useState(32);
   const [allLocations, setAllLocations] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
+  const [alertInfo, setAlertInfo] = useState("") 
 
   useEffect(() => {
     fetchData();
@@ -29,12 +31,14 @@ function App() {
 }
 
 } 
-
   return (
     <div className="App">
       
-    <div className="Container">
-    <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
+      <div className="Container">
+        <div className="alerts-container">
+          {alertInfo.length ? <InfoAlert text ={alertInfo}/>:null}
+      </div>
+    <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setAlertInfo={setAlertInfo}  />
     <NumberOfEvents  setCurrentNOE={setCurrentNOE} />
     </div>
 
