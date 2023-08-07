@@ -32,9 +32,18 @@ import { Component } from 'react';
 class InfoAlert extends Alert{
     constructor(props) {
         super(props);
-        this.color = 'rgb(0, 0, 255)'; // blue
-        this.bgColor = 'rgb(220, 220, 255)'; // light blue
+        this.color = 'rgb(0,0,0)'; 
+        this.bgColor = 'rgb(255,159,0)'; 
       }
-    }
+}
 
-export { InfoAlert };
+class ErrorAlert extends Alert{
+    constructor(props) {
+        super(props)
+        this.color = 'rgb(255,255,255)'
+        this.bgColor ='rgb(230, 0, 0)'
+    }
+    
+}
+
+export { InfoAlert, ErrorAlert}
