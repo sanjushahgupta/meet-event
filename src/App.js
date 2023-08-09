@@ -22,7 +22,9 @@ function App() {
     if (navigator.onLine) {
       setWarningAlert('');
     } else {
-      setWarningAlert('Oops! No internet')
+      setWarningAlert('Oops! No internet connection')
+      setErrorAlert('')
+      setAlertInfo('')
     }
     fetchData();
   }, [currentCity, currentNOE]);
