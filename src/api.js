@@ -17,7 +17,8 @@
     return result;
   };
 
-  export const getEvents = async () => {
+export const getEvents = async () => {
+  NProgress.start();
     if (window.location.href.startsWith('http://localhost')) {
       return mockData;
     }
