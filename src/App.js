@@ -2,7 +2,9 @@ import EventList from './components/EventList';
 import CitySearch from './components/CitySearch'
 import NumberOfEvents from './components/NumberOfEvents'
 import { useState, useEffect} from 'react';
-import { getEvents, extractLocations} from './api';
+import { getEvents, extractLocations } from './api';
+import { InfoAlert } from './components/alert'
+import { ErrorAlert } from './components/alert'
 
 import './App.css';
 
@@ -11,6 +13,8 @@ function App() {
   const [currentNOE, setCurrentNOE] = useState(32);
   const [allLocations, setAllLocations] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
+  const [alertInfo, setAlertInfo] = useState("") 
+  const [errorAlert, setErrorAlert] = useState("")
 
   useEffect(() => {
     fetchData();
@@ -29,15 +33,17 @@ function App() {
 }
 
 } 
-
   return (
     <div className="App">
       
-    <div className="Container">
-    <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
-    <NumberOfEvents  setCurrentNOE={setCurrentNOE} />
+      <div className="Container">
+        <div className="alerts-container">
+          {alertInfo.length ? <InfoAlert text={alertInfo} /> : null}
+          {errorAlert.length ? <ErrorAlert text={errorAlert}/>:null}
+      </div>
+    <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setAlertInfo={setAlertInfo}  />
+    <NumberOfEvents  setCurrentNOE={setCurrentNOE} setErrorAlert = {setErrorAlert} />
     </div>
-
     <EventList events={events.slice(0, currentNOE)}/>
   </div>
   );    

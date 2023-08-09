@@ -95,6 +95,11 @@ input[type="number"] {
 .suggestions > li:hover {
   background-color: #9ea2a2;
 }
+
+.alerts-container {
+z-index: 1000;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
