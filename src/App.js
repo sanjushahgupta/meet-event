@@ -5,6 +5,7 @@ import { useState, useEffect} from 'react';
 import { getEvents, extractLocations } from './api';
 import { InfoAlert } from './components/alert'
 import { ErrorAlert } from './components/alert'
+import { WarningAlert } from './components/alert';
 
 import './App.css';
 
@@ -15,8 +16,16 @@ function App() {
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [alertInfo, setAlertInfo] = useState("") 
   const [errorAlert, setErrorAlert] = useState("")
+  const [warningAlert, setWarningAlert] = useState("")
 
   useEffect(() => {
+    if (navigator.onLine) {
+      setWarningAlert('');
+    } else {
+      setWarningAlert('Oops! No internet connection')
+      setErrorAlert('')
+      setAlertInfo('')
+    }
     fetchData();
   }, [currentCity, currentNOE]);
 
@@ -39,7 +48,8 @@ function App() {
       <div className="Container">
         <div className="alerts-container">
           {alertInfo.length ? <InfoAlert text={alertInfo} /> : null}
-          {errorAlert.length ? <ErrorAlert text={errorAlert}/>:null}
+          {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
+          {warningAlert.length ? <WarningAlert text={warningAlert}/> : null }
       </div>
     <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setAlertInfo={setAlertInfo}  />
     <NumberOfEvents  setCurrentNOE={setCurrentNOE} setErrorAlert = {setErrorAlert} />

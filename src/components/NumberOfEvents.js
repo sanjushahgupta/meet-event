@@ -7,8 +7,8 @@
         const value = event.target.value;
         setNumber(value);
       
-        if (value && isNaN(value) || value && value <= 0) {
-          setErrorAlert("Invalid input. Please enter a valid number greater than 0.")
+        if((value && isNaN(value))||   (value && value <= 0)||  (value && value > 32)) {
+          setErrorAlert("Invalid input. Please enter a valid number greater than 0 and less than 33.")
         } else {
           setErrorAlert("")
           setCurrentNOE(value);

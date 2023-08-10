@@ -37,8 +37,8 @@
       };
 
       return (
+       
         <div id="city-search">
-        
           <label htmlFor="city">City: 
           <input
             type="text"
