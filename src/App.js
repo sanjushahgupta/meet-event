@@ -56,7 +56,8 @@ function App() {
     <NumberOfEvents  setCurrentNOE={setCurrentNOE} setErrorAlert = {setErrorAlert} />
       </div>
       <CityEventsChart allLocations={allLocations} events={events} />
-    <EventList events={events.slice(0, currentNOE)}/>
+      <EventList events={events.slice(0, currentNOE)} />
+      
   </div>
   );    
 }
