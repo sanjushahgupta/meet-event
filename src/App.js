@@ -7,6 +7,7 @@ import { InfoAlert } from './components/alert'
 import { ErrorAlert } from './components/alert'
 import { WarningAlert } from './components/alert';
 import CityEventsChart from './components/CityEventsChart'
+import EventGenresChart from './components/EventGenresChart'
  
 import './App.css';
 
@@ -56,6 +57,7 @@ function App() {
     <NumberOfEvents  setCurrentNOE={setCurrentNOE} setErrorAlert = {setErrorAlert} />
       </div>
       <div className='charts-container'>
+        <EventGenresChart events={events } />
         <CityEventsChart allLocations={allLocations} events={events} />
         </div>
       <EventList events={events.slice(0, currentNOE)} />
