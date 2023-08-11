@@ -55,9 +55,10 @@ function App() {
     <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setAlertInfo={setAlertInfo}  />
     <NumberOfEvents  setCurrentNOE={setCurrentNOE} setErrorAlert = {setErrorAlert} />
       </div>
-      <CityEventsChart allLocations={allLocations} events={events} />
+      <div className='charts-container'>
+        <CityEventsChart allLocations={allLocations} events={events} />
+        </div>
       <EventList events={events.slice(0, currentNOE)} />
-      
   </div>
   );    
 }
