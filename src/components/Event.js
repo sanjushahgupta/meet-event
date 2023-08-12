@@ -13,8 +13,8 @@
               <h5>{event.location}</h5>
               <h5>{event.created}</h5>
               <button  className="details-button" onClick={handleClick}>{showDetails ? 'Hide Details': 'Show Details'}</button>
-              {showDetails &&(
-                <div className="details-event">Event Details</div>
+              {showDetails && event &&(
+                <div className="details-event">{event.description}</div>
               )}
           </div>  
           </li>  

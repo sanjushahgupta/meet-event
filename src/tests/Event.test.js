@@ -1,5 +1,7 @@
+/* eslint-disable testing-library/prefer-find-by */
   import Event from "../components/Event";
-  import {fireEvent, render, screen} from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
   const event = {
         "kind": "calendar#event",
@@ -10,7 +12,7 @@
         "created": "2020-05-19T19:17:46.000Z",
         "updated": "2020-05-27T12:01:32.356Z",
         "summary": "Learn JavaScript",
-        "description": "Have you wondered how you can ask Google to show you the list of the top ten must-see places in London? And how Google presents you the list? How can you submit the details of an application? Well, JavaScript is doing these. :) \n\nJavascript offers interactivity to a dull, static website. Come, learn JavaScript with us and make those beautiful websites.",
+        "description": "Have you wondered how you can ask Google",
         "location": "London, UK",
         "creator": {
         "email": "fullstackwebdev@careerfoundry.com",
@@ -64,25 +66,22 @@
 
     test('by default, events details section should be hidden', () => {
       render(<Event event={event}/>)
-      expect(screen.queryByText('Event Details')).not.toBeInTheDocument();
+      expect(screen.queryByText(event.description)).not.toBeInTheDocument();
     });
 
-    test('when show button is clicked, display events details', () => {
-      render(<Event event={event}/>)
-          const showDetailsButton = screen.queryByText('Show Details'); 
-          fireEvent.click(showDetailsButton); 
-          const detailsElement = screen.queryByText('Event Details');
-          expect(detailsElement).toBeInTheDocument();
+    test('when show button is clicked, display events details', async () => {
+  render(<Event event={event} />);
+  userEvent.click(screen.getByText('Show Details'));
+  await waitFor(() => expect(screen.getByText(event.description)).toBeInTheDocument());
+});
 
-  })
-
-  test('hide the details, when hide button clicked', () => {
+    test('hide the details, when hide button clicked', () => {
     render(<Event event={event}/>)
       const showDetailsButton = screen.queryByText('Show Details'); 
-      fireEvent.click(showDetailsButton);
+      userEvent.click(showDetailsButton);
       const hideDetailsButton = screen.queryByText('Hide Details');
-      fireEvent.click(hideDetailsButton);
-      const detailsElement = screen.queryByText('Event Details');
+      userEvent.click(hideDetailsButton);
+    const detailsElement = screen.queryByText(event.description);
       expect(detailsElement).not.toBeInTheDocument();
   })
 

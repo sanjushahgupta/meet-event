@@ -58,9 +58,9 @@ import App from '../App';
                 })
         
             then('the details of the desired event should be shown by expanding the event.', () => {
-                const showEventDetails = within(EventListItems[0]).getByText('Event Details');
+                const eventListItem = EventListItems[0];
+                const showEventDetails = eventListItem.querySelector('.details-event');
                     expect(showEventDetails).toBeInTheDocument();
-                    
                 })
             })
 
@@ -80,8 +80,8 @@ import App from '../App';
                         expect(EventListItems.length).toBe(32);
                     });
                     const showButton = within(EventListItems[0]).getByText('Show Details');
-                    fireEvent.click(showButton);
-                    showEventDetails = within(EventListItems[0]).getByText('Event Details');
+                fireEvent.click(showButton);
+                
              });
             
             when ('the user clicks on the "hide details" button for the first event.',()=>{
@@ -89,7 +89,8 @@ import App from '../App';
                     fireEvent.click(HideBtn)
             })
 
-            then('the event details should collapse, hiding the additional details about the event.',()=>{
+            then('the event details should collapse, hiding the additional details about the event.', () => {
+                 const showEventDetails = EventListItems[0].querySelector('.details-event');
                     expect(showEventDetails).not.toBeInTheDocument();
             })
          })
