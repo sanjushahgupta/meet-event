@@ -1,14 +1,13 @@
-        /* eslint-disable testing-library/prefer-screen-queries */
+/* eslint-disable testing-library/prefer-screen-queries */
 /* eslint-disable testing-library/no-node-access */
 import { loadFeature, defineFeature } from 'jest-cucumber';
 import { render, waitFor, within, screen} from '@testing-library/react';
 import { fireEvent } from '@testing-library/react';
         
 import App from '../App';
-
     const feature = loadFeature('./src/features/showHideAnEventsDetails.feature');
-        
-    defineFeature(feature, test => {
+
+defineFeature(feature, test => {
         test('Event details are hidden by default.', ({given, when, then})=>{
             let AppComponent;
             let EventListDOM;

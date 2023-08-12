@@ -7,9 +7,6 @@
 
 body{background-color: aliceblue;}
 
-
-
-
 #city {
   width: 250px;
 }
@@ -21,11 +18,11 @@ body{background-color: aliceblue;}
   align-items: self-start;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .Container{
-  background-color:#1a8e92; 
+  background-color:#d5f0f1; 
+
 }
 
 .App-link {
@@ -42,15 +39,16 @@ body{background-color: aliceblue;}
   position: relative;
 }
 
-.event-container button{
+.details-button{
   right: 5px;
   bottom: 5px;
-  padding: 8px;
+  padding: 6px;
   position: absolute;
   background-color: hsl(184, 89%, 14%);
   color: #ffffff;
   border-radius: 8px;
   border:none;
+  margin-top: 8px;
 }
 
 input[type="text"],
@@ -98,6 +96,14 @@ input[type="number"] {
 
 .alerts-container {
 z-index: 1000;
+}
+
+.app-intro{
+  padding:5px;
+  font-size: 25px;
+}
+.details-event{
+  padding:8px;
 }
 
 .charts-container{

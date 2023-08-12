@@ -46,19 +46,20 @@ function App() {
 } 
   return (
     <div className="App">
-      
       <div className="Container">
+      <div className='app-intro'>Meet Event</div>
         <div className="alerts-container">
           {alertInfo.length ? <InfoAlert text={alertInfo} /> : null}
           {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
           {warningAlert.length ? <WarningAlert text={warningAlert}/> : null }
-      </div>
+   
     <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setAlertInfo={setAlertInfo}  />
     <NumberOfEvents  setCurrentNOE={setCurrentNOE} setErrorAlert = {setErrorAlert} />
       </div>
       <div className='charts-container'>
         <EventGenresChart events={events } />
         <CityEventsChart allLocations={allLocations} events={events} />
+        </div>
         </div>
       <EventList events={events.slice(0, currentNOE)} />
   </div>

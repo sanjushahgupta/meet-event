@@ -2,12 +2,11 @@
 
     const NumberOfEvents = ({setCurrentNOE , setErrorAlert}) => {
       const [number, setNumber] = useState(32);
-
       const handleInputChanged = (event) => {
         const value = event.target.value;
         setNumber(value);
       
-        if((value && isNaN(value))||   (value && value <= 0)||  (value && value > 32)) {
+        if((value && isNaN(value))|| (value && value <= 0)|| (value && value > 32)) {
           setErrorAlert("Invalid input. Please enter a valid number greater than 0 and less than 33.")
         } else {
           setErrorAlert("")
@@ -28,5 +27,5 @@
         </div>
       );
     }
-
+    
     export default NumberOfEvents;
