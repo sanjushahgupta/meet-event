@@ -6,7 +6,9 @@ import { getEvents, extractLocations } from './api';
 import { InfoAlert } from './components/alert'
 import { ErrorAlert } from './components/alert'
 import { WarningAlert } from './components/alert';
-
+import CityEventsChart from './components/CityEventsChart'
+import EventGenresChart from './components/EventGenresChart'
+ 
 import './App.css';
 
 function App() {
@@ -44,17 +46,22 @@ function App() {
 } 
   return (
     <div className="App">
-      
       <div className="Container">
+     
         <div className="alerts-container">
           {alertInfo.length ? <InfoAlert text={alertInfo} /> : null}
           {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
           {warningAlert.length ? <WarningAlert text={warningAlert}/> : null }
-      </div>
+          <div className='app-intro'>Meet Event</div>
     <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setAlertInfo={setAlertInfo}  />
     <NumberOfEvents  setCurrentNOE={setCurrentNOE} setErrorAlert = {setErrorAlert} />
-    </div>
-    <EventList events={events.slice(0, currentNOE)}/>
+      </div>
+      <div className='charts-container'>
+        <EventGenresChart events={events } />
+        <CityEventsChart allLocations={allLocations} events={events} />
+        </div>
+        </div>
+      <EventList events={events.slice(0, currentNOE)} />
   </div>
   );    
 }
